@@ -79,7 +79,7 @@ const Index = () => {
     {
       title: "FullStack Chat App",
       duration: "03/2025 - 04/2025",
-      url: "https://chatty-8anj.onrender.com/login",
+      url: "https://chatty-8shj.onrender.com/login",
       description: "Real-time chat application with secure authentication and modern UI",
       technologies: ["React", "Node.js", "MongoDB", "Socket.IO", "JWT", "TailwindCSS", "DaisyUI"],
       features: [
