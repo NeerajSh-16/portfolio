@@ -91,16 +91,14 @@ const Index = () => {
       ]
     },
     {
-      title: "Connect Four Dots Game",
-      duration: "Interactive Gaming Experience",
-      url: "https://neerajsh-16.github.io/connect-four-game/",
-      description: "Dynamic web application with interactive gaming experience",
-      technologies: ["Sass", "JavaScript", "React", "Redux-Toolkit"],
+      title: "Assembly End Game",
+      duration: "Word-Guessing Game",
+      url: "#",
+      description: "Built an interactive word-guessing game in React where users guess programming terms within limited attempts",
+      technologies: ["React", "JavaScript", "CSS", "HTML"],
       features: [
-        "Developed a dynamic web application using Sass, JavaScript, React, and Redux-Toolkit",
-        "Providing users with an interactive gaming experience",
-        "Implemented both single-player and multiplayer modes",
-        "Including an AI opponent, expanding the game's accessibility and engagement"
+        "Used dynamic state management and visual cues to enhance gameplay and user engagement",
+        "Integrated lifelines themed around popular programming languages for a fun, educational twist"
       ]
     },
     {
