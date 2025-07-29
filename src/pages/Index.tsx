@@ -93,7 +93,7 @@ const Index = () => {
     {
       title: "Assembly End Game",
       duration: "Word-Guessing Game",
-      url: "#",
+      url: "https://assembly-endgame.onrender.com/",
       description: "Built an interactive word-guessing game in React where users guess programming terms within limited attempts",
       technologies: ["React", "JavaScript", "CSS", "HTML"],
       features: [
