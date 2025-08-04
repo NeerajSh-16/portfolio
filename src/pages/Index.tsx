@@ -61,38 +61,34 @@ const Index = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const skills = [
-    { name: 'C/C++', level: 95 },
-    { name: 'Java', level: 90 },
-    { name: 'JavaScript', level: 90 },
-    { name: 'HTML/CSS', level: 95 },
-    { name: 'React', level: 85 },
-    { name: 'Node.js', level: 80 },
-    { name: 'MongoDB', level: 75 },
-    { name: 'Redux Toolkit', level: 75 },
-    { name: 'Socket.IO', level: 80 },
-    { name: 'SQL', level: 80 },
-    { name: 'Git/GitHub', level: 90 }
-  ];
-
   const projects = [
     {
-      title: "FullStack Chat App",
-      duration: "03/2025 - 04/2025",
-      url: "https://chatty-8shj.onrender.com/login",
-      description: "Real-time chat application with secure authentication and modern UI",
+      title: "PrepTalk",
+      duration: "23-07-2025 to 03-08-2025",
+      url: "https://mock-interview-platform-roan.vercel.app/",
+      description: "Developed an AI based interactive mock interview platform using Vapi AI agent",
+      technologies: ["Next.js", "Firebase", "Tailwind CSS", "Vapi AI", "shadcn/ui", "Google Gemeni", "Zod"],
+      features: [
+        "PrepTalk delivers realistic AI-driven mock interviews with personalized and dynamic questioning.",
+        "Built on Next.js, Firebase with Vapi AI agent, it offers a secure and seamless user experience.", 
+        "Users receive detailed AI-generated feedback to boost communication, skills, and confidence for real job success."
+      ]
+    },
+    {
+      title: "Chatty",
+      duration: "01-07-2025 to 19-07-2025",
+      url: "https://chatty-8anj.onrender.com/login",
+      description: "Developed a real-time chat application using React, Node.js, and MongoDB (MERN Stack)",
       technologies: ["React", "Node.js", "MongoDB", "Socket.IO", "JWT", "TailwindCSS", "DaisyUI"],
       features: [
-        "Developed a real-time chat application using React, Node.js, and MongoDB (MERN Stack)",
         "Integrated JWT-based authentication with secure login and protected routes",
-        "Built responsive and modern UI with TailwindCSS and DaisyUI, including dark/light theme switching",
-        "Designed and developed online/offline presence indicators and image sharing feature in chats",
-        "Implemented live messaging functionality using Socket.IO with 1-on-1 chat support"
+        "Built responsive and modern UI with TailwindCSS and DaisyUI, including dark/light theme switching", 
+        "Implemented live messaging functionality using Socket.IO with 1-to-1 chat support, online/offline presence indicators and image sharing feature in chats"
       ]
     },
     {
       title: "Assembly End Game",
-      duration: "Word-Guessing Game",
+      duration: "10-03-2025 to 21-03-2025",
       url: "https://assembly-endgame.onrender.com/",
       description: "Built an interactive word-guessing game in React where users guess programming terms within limited attempts",
       technologies: ["React", "JavaScript", "CSS", "HTML"],
@@ -102,19 +98,18 @@ const Index = () => {
       ]
     },
     {
-      title: "ASCII-ART Library",
-      duration: "Data Structures & OOP",
+      title: "ASCII-ART",
+      duration: "01-09-2023 to 27-09-2023",
       url: "https://github.com/NeerajSh-16/ascii-art",
-      description: "Demonstrating real-world use of data structures and Object-oriented programming",
+      description: "Demonstrated the real-world use of data structures and Object-oriented programming approaches and designs in this library",
       technologies: ["C++", "Data Structures", "OOP", "Algorithms"],
       features: [
-        "Demonstrated the real-world use of data structures and Object-oriented programming approaches",
-        "Designed comprehensive library showcasing various programming concepts",
         "Implemented efficient algorithms for ASCII art generation",
         "Applied system design principles for scalable architecture"
       ]
     }
   ];
+
 
   const achievements = [
     {
@@ -150,53 +145,29 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-blue-900 transition-colors duration-300">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700 transition-colors duration-300">
-        <div className="max-w-6xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              NEERAJ SHARMA
-            </div>
-            <div className="flex items-center gap-6">
-              <div className="hidden md:flex space-x-8">
-                {['home', 'about', 'education', 'skills', 'projects', 'achievements', 'contact'].map((section) => (
-                  <button
-                    key={section}
-                    onClick={() => scrollToSection(section)}
-                    className={`capitalize transition-colors ${
-                      activeSection === section 
-                        ? 'text-blue-600 font-semibold' 
-                        : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
-                    }`}
-                  >
-                    {section}
-                  </button>
-                ))}
-              </div>
-              <div className="flex items-center gap-2">
-                <Sun className="h-4 w-4 text-gray-600 dark:text-gray-300" />
-                <Switch
-                  checked={isDarkMode}
-                  onCheckedChange={toggleTheme}
-                  aria-label="Toggle dark mode"
-                />
-                <Moon className="h-4 w-4 text-gray-600 dark:text-gray-300" />
-              </div>
-            </div>
-          </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-amber-50 dark:from-gray-950 dark:via-slate-900 dark:to-blue-950 transition-colors duration-300">
+      {/* Dark Mode Toggle */}
+      <div className="flex justify-end pt-6 pr-6">
+        <div className="flex items-center gap-2 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md px-4 py-2 rounded-full border border-gray-200 dark:border-slate-600 shadow-lg">
+          <Sun className="h-4 w-4 text-gray-600 dark:text-blue-300" />
+          <Switch
+            checked={isDarkMode}
+            onCheckedChange={toggleTheme}
+            aria-label="Toggle dark mode"
+          />
+          <Moon className="h-4 w-4 text-gray-600 dark:text-blue-300" />
         </div>
-      </nav>
+      </div>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-20">
+      <section id="home" className="min-h-screen flex items-center justify-center px-6">
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-8">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-600 via-orange-600 to-amber-800 dark:from-blue-400 dark:via-cyan-300 dark:to-blue-200 bg-clip-text text-transparent">
               NEERAJ SHARMA
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-             Full Stack Developer | Programmer | Artist
+              MCA Student at NIT Jamshedpur | Full Stack Developer | Competitive Programmer
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
@@ -216,7 +187,7 @@ const Index = () => {
               <Button 
                 onClick={() => scrollToSection('projects')} 
                 size="lg" 
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 dark:from-blue-600 dark:to-cyan-600 dark:hover:from-blue-500 dark:hover:to-cyan-500"
               >
                 View Projects
               </Button>
@@ -224,7 +195,7 @@ const Index = () => {
                 onClick={() => scrollToSection('contact')} 
                 variant="outline" 
                 size="lg"
-                className="border-2 hover:bg-blue-50 dark:hover:bg-blue-900/20"
+                className="border-2 hover:bg-amber-50 dark:hover:bg-slate-800/20"
               >
                 Get In Touch
               </Button>
@@ -254,11 +225,11 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-6 bg-white dark:bg-slate-800 transition-colors duration-300">
+      <section id="about" className="py-20 px-6 bg-white dark:bg-slate-900 transition-colors duration-300">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-800 dark:text-gray-100">About Me</h2>
           <div className="max-w-4xl mx-auto">
-            <Card className="border-0 shadow-lg dark:bg-slate-700">
+            <Card className="border-0 shadow-lg dark:bg-slate-800">
               <CardContent className="p-8">
                 <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                   I am currently pursuing Master of Computer Applications (MCA) at the prestigious National Institute of Technology (NIT) Jamshedpur, 
@@ -274,11 +245,11 @@ const Index = () => {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-20 px-6 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 transition-colors duration-300">
+      <section id="education" className="py-20 px-6 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-slate-950/80 dark:to-blue-950/80 transition-colors duration-300">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-800 dark:text-gray-100">Education</h2>
           <div className="space-y-8">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow dark:bg-slate-700">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow dark:bg-slate-800">
               <CardHeader>
                 <div className="flex items-center gap-4">
                   <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
@@ -302,7 +273,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow dark:bg-slate-700">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow dark:bg-slate-800">
               <CardHeader>
                 <div className="flex items-center gap-4">
                   <div className="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-full">
@@ -330,52 +301,57 @@ const Index = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-6 bg-white dark:bg-slate-800 transition-colors duration-300">
+      <section id="skills" className="py-20 px-6 bg-white dark:bg-slate-900 transition-colors duration-300">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-800 dark:text-gray-100">Technical Skills</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-1 gap-8">
             <div>
-              <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100">Programming Languages & Frameworks</h3>
-              <div className="space-y-6">
-                {skills.map((skill, index) => (
-                  <div key={index}>
-                    <div className="flex justify-between mb-2">
-                      <span className="font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>
-                      <span className="text-gray-600 dark:text-gray-400">{skill.level}%</span>
-                    </div>
-                    <Progress value={skill.level} className="h-2" />
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100">Technical Expertise</h3>
-              <div className="space-y-4 mb-6">
+              <div className="space-y-6 mb-8">
                 <div>
-                  <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-2">Frontend Technologies</h4>
-                  <div className="flex flex-wrap gap-2">
+                  <h4 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">Programming Languages</h4>
+                  <div className="flex flex-wrap gap-3">
+                    {['C', 'C++', 'Java'].map((skill) => (
+                      <Badge key={skill} variant="secondary" className="px-4 py-2 text-sm bg-gradient-to-r from-blue-100 to-purple-100 text-gray-700 border-0 dark:from-blue-900/30 dark:to-purple-900/30 dark:text-gray-300">
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">Frontend Technologies</h4>
+                  <div className="flex flex-wrap gap-3">
                     {['HTML', 'CSS', 'JavaScript', 'React.js', 'Next.js', 'Redux Toolkit', 'Tailwind CSS'].map((skill) => (
-                      <Badge key={skill} variant="secondary" className="px-3 py-1 text-sm bg-gradient-to-r from-blue-100 to-purple-100 text-gray-700 border-0 dark:from-blue-900/30 dark:to-purple-900/30 dark:text-gray-300">
+                      <Badge key={skill} variant="secondary" className="px-4 py-2 text-sm bg-gradient-to-r from-green-100 to-blue-100 text-gray-700 border-0 dark:from-green-900/30 dark:to-blue-900/30 dark:text-gray-300">
                         {skill}
                       </Badge>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-2">Backend & Database</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {['Node.js', 'Express.js', 'MongoDB', 'PostgreSQL', 'Socket.io', 'WebRTC', 'Redis', 'Kafka', 'Docker'].map((skill) => (
-                      <Badge key={skill} variant="secondary" className="px-3 py-1 text-sm bg-gradient-to-r from-green-100 to-blue-100 text-gray-700 border-0 dark:from-green-900/30 dark:to-blue-900/30 dark:text-gray-300">
+                  <h4 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">Backend & Database</h4>
+                  <div className="flex flex-wrap gap-3">
+                    {['Node.js', 'Express.js', 'MongoDB', 'PostgreSQL', 'Socket.io', 'WebRTC', 'Firebase'].map((skill) => (
+                      <Badge key={skill} variant="secondary" className="px-4 py-2 text-sm bg-gradient-to-r from-purple-100 to-pink-100 text-gray-700 border-0 dark:from-purple-900/30 dark:to-pink-900/30 dark:text-gray-300">
                         {skill}
                       </Badge>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-2">Tools & Others</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {['Git', 'GitHub', 'Visual Studio Code', 'DBMS', 'OOPS', 'Data Structures', 'Algorithms', 'System Design', 'OS'].map((skill) => (
-                      <Badge key={skill} variant="secondary" className="px-3 py-1 text-sm bg-gradient-to-r from-purple-100 to-pink-100 text-gray-700 border-0 dark:from-purple-900/30 dark:to-pink-900/30 dark:text-gray-300">
+                  <h4 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">Coursework & Computer Science Fundamentals</h4>
+                  <div className="flex flex-wrap gap-3">
+                    {['Data Structures', 'Algorithms', 'DBMS', 'OOPS', 'SQL', 'System Design', 'Operating Systems'].map((skill) => (
+                      <Badge key={skill} variant="secondary" className="px-4 py-2 text-sm bg-gradient-to-r from-orange-100 to-red-100 text-gray-700 border-0 dark:from-orange-900/30 dark:to-red-900/30 dark:text-gray-300">
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">Languages</h4>
+                  <div className="flex flex-wrap gap-3">
+                    {['English (Professional proficiency)', 'Hindi (Professional proficiency)'].map((skill) => (
+                      <Badge key={skill} variant="secondary" className="px-4 py-2 text-sm bg-gradient-to-r from-cyan-100 to-teal-100 text-gray-700 border-0 dark:from-cyan-900/30 dark:to-teal-900/30 dark:text-gray-300">
                         {skill}
                       </Badge>
                     ))}
@@ -388,7 +364,7 @@ const Index = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-6 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 transition-colors duration-300">
+      <section id="projects" className="py-20 px-6 bg-gradient-to-br from-orange-50 to-amber-50 dark:from-slate-950/80 dark:to-blue-950/80 transition-colors duration-300">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-800 dark:text-gray-100">Featured Projects</h2>
           <div className="relative">
@@ -396,7 +372,7 @@ const Index = () => {
               <CarouselContent>
                 {projects.map((project, index) => (
                   <CarouselItem key={index}>
-                    <Card className="border-0 shadow-xl hover:shadow-2xl transition-shadow dark:bg-slate-700">
+                    <Card className="border-0 shadow-xl hover:shadow-2xl transition-shadow dark:bg-slate-800">
                       <CardHeader>
                         <div className="flex justify-between items-start">
                           <div>
@@ -421,11 +397,11 @@ const Index = () => {
                         <div className="mb-6">
                           <h4 className="font-semibold mb-3 text-gray-800 dark:text-gray-200">Technologies Used:</h4>
                           <div className="flex flex-wrap gap-2">
-                            {project.technologies.map((tech) => (
-                              <Badge key={tech} className="bg-blue-100 text-blue-800 border-0 dark:bg-blue-900/30 dark:text-blue-400">
-                                {tech}
-                              </Badge>
-                            ))}
+                             {project.technologies.map((tech) => (
+                               <Badge key={tech} className="bg-amber-100 text-amber-800 border-0 dark:bg-blue-900/30 dark:text-blue-400">
+                                 {tech}
+                               </Badge>
+                             ))}
                           </div>
                         </div>
                         <div>
@@ -433,7 +409,7 @@ const Index = () => {
                           <ul className="space-y-2">
                             {project.features.map((feature, idx) => (
                               <li key={idx} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
-                                <span className="text-blue-600 dark:text-blue-400 mt-1">•</span>
+                                <span className="text-amber-600 dark:text-blue-400 mt-1">•</span>
                                 {feature}
                               </li>
                             ))}
@@ -452,20 +428,20 @@ const Index = () => {
       </section>
 
       {/* Achievements Section */}
-      <section id="achievements" className="py-20 px-6 bg-white dark:bg-slate-800 transition-colors duration-300">
+      <section id="achievements" className="py-20 px-6 bg-white dark:bg-slate-900 transition-colors duration-300">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-800 dark:text-gray-100">Key Achievements</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {achievements.map((achievement, index) => (
-              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow dark:bg-slate-700">
+              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow dark:bg-slate-800">
                 <CardHeader>
                   <div className="flex items-center gap-4">
-                    <div className="p-3 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 rounded-full">
-                      <achievement.icon className="text-blue-600 dark:text-blue-400" size={24} />
+                     <div className="p-3 bg-gradient-to-r from-amber-100 to-orange-100 dark:from-blue-900/30 dark:to-cyan-900/30 rounded-full">
+                       <achievement.icon className="text-amber-600 dark:text-blue-400" size={24} />
                     </div>
                     <div>
                       <CardTitle className="text-xl dark:text-gray-100">{achievement.title}</CardTitle>
-                      <Badge variant="secondary" className="mt-2 dark:bg-slate-600 dark:text-gray-300">
+                      <Badge variant="secondary" className="mt-2 dark:bg-slate-700 dark:text-gray-300">
                         {achievement.category}
                       </Badge>
                     </div>
@@ -481,14 +457,14 @@ const Index = () => {
       </section>
 
       {/* Interests Section */}
-      <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 transition-colors duration-300">
+      <section className="py-16 px-6 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-slate-950/80 dark:to-blue-950/80 transition-colors duration-300">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-gray-100">Interests</h2>
           <div className="flex justify-center gap-8">
             {interests.map((interest, index) => (
               <div key={index} className="flex flex-col items-center">
-                <div className="p-4 bg-white dark:bg-slate-700 rounded-full shadow-md mb-3">
-                  <interest.icon className="text-blue-600 dark:text-blue-400" size={24} />
+                 <div className="p-4 bg-white dark:bg-slate-800 rounded-full shadow-md mb-3">
+                   <interest.icon className="text-amber-600 dark:text-blue-400" size={24} />
                 </div>
                 <span className="text-gray-700 dark:text-gray-300 font-medium">{interest.name}</span>
               </div>
@@ -498,7 +474,7 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-gradient-to-br from-blue-600 to-purple-700 dark:from-blue-800 dark:to-purple-900 text-white transition-colors duration-300">
+      <section id="contact" className="py-20 px-6 bg-gradient-to-br from-amber-600 to-orange-700 dark:from-slate-800 dark:to-blue-900 text-white transition-colors duration-300">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-8">Let's Connect</h2>
           <p className="text-xl mb-12 opacity-90">
@@ -547,7 +523,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 bg-gray-900 dark:bg-slate-900 text-gray-400 text-center transition-colors duration-300">
+      <footer className="py-8 px-6 bg-gray-900 dark:bg-slate-950 text-gray-400 text-center transition-colors duration-300">
         <p>&copy; 2024 Neeraj Sharma. All rights reserved.</p>
       </footer>
     </div>
