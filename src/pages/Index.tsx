@@ -167,7 +167,7 @@ const Index = () => {
               NEERAJ SHARMA
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-              MCA Student at NIT Jamshedpur | Full Stack Developer | Artist
+              MCA Student at NIT Jamshedpur | Full Stack Developer |Sketch Artist
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
