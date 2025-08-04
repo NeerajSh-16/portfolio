@@ -77,7 +77,7 @@ const Index = () => {
     {
       title: "Chatty",
       duration: "01-07-2025 to 19-07-2025",
-      url: "https://chatty-8anj.onrender.com/login",
+      url: "https://chatty-8shj.onrender.com/",
       description: "Developed a real-time chat application using React, Node.js, and MongoDB (MERN Stack)",
       technologies: ["React", "Node.js", "MongoDB", "Socket.IO", "JWT", "TailwindCSS", "DaisyUI"],
       features: [
