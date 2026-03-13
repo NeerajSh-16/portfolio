@@ -29,8 +29,17 @@ const ParticleSphere = (props) => {
   }, [count]);
 
   useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 15;
-    ref.current.rotation.y -= delta / 20;
+    // state.pointer holds normalized mouse coordinates [-1, 1]
+    const targetX = state.pointer.x * 0.5;
+    const targetY = state.pointer.y * 0.5;
+
+    // Smoothly interpolate towards the target rotation based on cursor
+    ref.current.rotation.y += (targetX - ref.current.rotation.y) * 2 * delta;
+    ref.current.rotation.x += (-targetY - ref.current.rotation.x) * 2 * delta;
+    
+    // Add a very slow continuous rotation so it doesn't stand completely still
+    ref.current.rotation.x -= delta / 50;
+    ref.current.rotation.y -= delta / 60;
   });
 
   return (

@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import ParticleSphere from './components/ParticleSphere';
@@ -10,11 +10,17 @@ import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 
 function App() {
+  const scrollContainer = useRef(null);
+
   return (
     <div className="relative w-full h-screen bg-[#050505] overflow-hidden">
       {/* 3D Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <Canvas camera={{ position: [0, 0, 3] }} style={{ pointerEvents: 'auto' }}>
+        <Canvas 
+          camera={{ position: [0, 0, 3] }} 
+          eventSource={scrollContainer}
+          eventPrefix="client"
+        >
           <color attach="background" args={['#050505']} />
           <ambientLight intensity={0.5} />
           <Suspense fallback={null}>
@@ -27,12 +33,16 @@ function App() {
             autoRotateSpeed={0.5} 
             maxPolarAngle={Math.PI / 2 + 0.5}
             minPolarAngle={Math.PI / 2 - 0.5}
+            makeDefault
           />
         </Canvas>
       </div>
 
       {/* HTML Foreground Overlay */}
-      <div className="absolute inset-0 overflow-y-auto overflow-x-hidden z-10 scroll-smooth">
+      <div 
+        ref={scrollContainer}
+        className="absolute inset-0 overflow-y-auto overflow-x-hidden z-10 scroll-smooth"
+      >
         <Hero />
         <About />
         <Skills />
