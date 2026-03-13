@@ -1,9 +1,21 @@
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 
 const ParticleSphere = (props) => {
   const ref = useRef();
+  const [isDesktop, setIsDesktop] = useState(true);
+
+  useEffect(() => {
+    // Check if the device has a pointer (mouse) and is not primarily a touch device
+    const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    setIsDesktop(mediaQuery.matches);
+
+    const handleMediaChange = (e) => setIsDesktop(e.matches);
+    mediaQuery.addEventListener('change', handleMediaChange);
+    
+    return () => mediaQuery.removeEventListener('change', handleMediaChange);
+  }, []);
   
   // Create 5000 random points within a sphere of radius 1.5
   const count = 5000;
@@ -29,17 +41,24 @@ const ParticleSphere = (props) => {
   }, [count]);
 
   useFrame((state, delta) => {
-    // state.pointer holds normalized mouse coordinates [-1, 1]
-    const targetX = state.pointer.x * 0.5;
-    const targetY = state.pointer.y * 0.5;
+    // 1. Calculate continuous base rotation
+    const time = state.clock.getElapsedTime();
+    const baseRotationX = -time / 15;
+    const baseRotationY = -time / 20;
 
-    // Smoothly interpolate towards the target rotation based on cursor
-    ref.current.rotation.y += (targetX - ref.current.rotation.y) * 2 * delta;
-    ref.current.rotation.x += (-targetY - ref.current.rotation.x) * 2 * delta;
-    
-    // Add a very slow continuous rotation so it doesn't stand completely still
-    ref.current.rotation.x -= delta / 50;
-    ref.current.rotation.y -= delta / 60;
+    if (isDesktop) {
+      // 2. Add pointer interaction layered on top of the base rotation
+      const targetX = state.pointer.x * 0.5;
+      const targetY = state.pointer.y * 0.5;
+
+      // Smoothly move current rotation towards (base + pointer)
+      ref.current.rotation.y += (baseRotationY + targetX - ref.current.rotation.y) * 2 * delta;
+      ref.current.rotation.x += (baseRotationX - targetY - ref.current.rotation.x) * 2 * delta;
+    } else {
+      // 3. For mobile, just apply the base rotation directly without smoothing needed
+      ref.current.rotation.x = baseRotationX;
+      ref.current.rotation.y = baseRotationY;
+    }
   });
 
   return (

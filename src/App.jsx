@@ -20,28 +20,21 @@ function App() {
           camera={{ position: [0, 0, 3] }} 
           eventSource={scrollContainer}
           eventPrefix="client"
+          style={{ pointerEvents: 'none' }}
         >
           <color attach="background" args={['#050505']} />
           <ambientLight intensity={0.5} />
           <Suspense fallback={null}>
             <ParticleSphere />
           </Suspense>
-          <OrbitControls 
-            enableZoom={false} 
-            enablePan={false} 
-            autoRotate 
-            autoRotateSpeed={0.5} 
-            maxPolarAngle={Math.PI / 2 + 0.5}
-            minPolarAngle={Math.PI / 2 - 0.5}
-            makeDefault
-          />
+          {/* Removed OrbitControls as it intercepts touch events and we want native scrolling */}
         </Canvas>
       </div>
 
       {/* HTML Foreground Overlay */}
       <div 
         ref={scrollContainer}
-        className="absolute inset-0 overflow-y-auto overflow-x-hidden z-10 scroll-smooth"
+        className="absolute inset-0 overflow-y-auto overflow-x-hidden z-10 scroll-smooth pointer-events-auto touch-pan-y"
       >
         <Hero />
         <About />
